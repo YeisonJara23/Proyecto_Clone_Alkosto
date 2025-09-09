@@ -1,0 +1,199 @@
+.header {
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* 🔸 Banner superior */
+.header-top-banner {
+  background: #e95e27;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2px 0;
+  text-transform: uppercase;
+}
+
+/* 🔹 Bloque azul con imagen */
+.header-main {
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+  height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.header-main-container {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 0px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ===== Fila superior ===== */
+.header-top-row {
+  display: grid;
+  grid-template-columns: 380px 160px 1fr;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.header-logo img {
+  height: 120px;
+  width: auto;
+  display: block;
+  margin-top: -30px;
+}
+
+/* Hiperofertas */
+.header-hiperofertas a {
+  background: #e6eef8;
+  color: #004797;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Teléfonos + links */
+.header-info-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  color: #fff;
+  font-size: 13px;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.header-info-links span {
+  font-weight: bold;
+}
+
+.header-info-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+  padding: 0 8px;
+}
+
+.header-info-links a:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -8px;
+  color: #fff;
+}
+
+/* ===== Fila inferior ===== */
+.header-bottom-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: -20px;
+  padding-top: 0;
+}
+
+.header-right-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 120px;
+}
+
+/* Buscador */
+.search-bar {
+  display: flex;
+  width: 100%;
+  max-width: 650px;
+  margin-top: -40px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px 0 0 6px;
+  background: #fff;
+  font-size: 14px;
+}
+
+.search-button {
+  border: 1px solid #ff6a00;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  background: #fff;
+  color: #ff6a00;
+  padding: 0 14px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Acciones (cuenta + carrito) */
+.header-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: -40px;
+}
+
+.account-link,
+.cart-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+  gap: 5px;
+}
+
+.account-link i,
+.cart-link i {
+  font-size: 20px;
+}
+
+/* 🔸 Categorías */
+.header-categories {
+  background: #fff;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.header-categories-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  max-width: 1900px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.header-categories a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #004797;
+  position: relative;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.header-categories a:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -8px;
+  color: #999;
+}
+
+.header-categories a:hover {
+  text-decoration: underline;
+}

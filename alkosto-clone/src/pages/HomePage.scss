@@ -1,57 +1,106 @@
-.home-page {
-  padding: 20px 0;
+/* ===== Wrapper ===== */
+.home {
+  padding: 0;
+}
 
-  .featured-products,
-  .categories-section {
-    max-width: 1200px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
+/* ===== HERO: carrusel + mini-categorías ===== */
+.home-hero {
+  background: #f5f6f7;
+  padding: 16px 0 24px;
 
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #333;
-      text-align: center;
+  &__container {
+    width: min(1200px, 100%);
+    margin-inline: auto;
+    padding-inline: 16px;
+
+    display: grid;
+    grid-template-columns: 1.7fr 1.50fr; /* carrusel ancho + panel derecho */
+    gap: 16px;
+    align-items: start; /* que el panel derecho arranque arriba */
+  }
+
+  /* Carrusel debe ocupar todo su contenedor (sin márgenes) */
+  &__left .hero-carousel {
+    width: 90%;
+    height: 320px;        /* ajusta a tu gusto */
+    margin: 0;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  /* Panel derecho (mini-categorías) */
+  &__right {
+    min-width: 0;
+  }
+
+  /* === Presentación de la variante "sidebar" de las mini-categorías === */
+  .mini-categories--sidebar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 2 columnas en el panel derecho */
+    grid-auto-rows: 80px;                  /* alto de cada tarjeta */
+    gap: 10px;
+  }
+
+  .mini-categories--sidebar .mini-cat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    padding: 12px;
+    text-align: center;
+    transition: transform .15s ease, box-shadow .15s ease;
+
+    img {
+      width: 40px;  /* icono más pequeño */
+      height: 40px;
+      object-fit: contain;
     }
-  }
 
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-  }
+    span {
+      font-size: 13px;
+      color: #1f1f1f;
+      line-height: 1.2;
+    }
 
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
   }
 }
 
-/* 📱 Responsive */
-@media (max-width: 768px) {
-  .home-page {
-    .featured-products,
-    .categories-section {
-      padding: 0 15px;
-
-      h2 {
-        font-size: 1.5rem;
-      }
+/* ===== Responsive ===== */
+@media (max-width: 1024px) {
+  .home-hero {
+    &__container {
+      grid-template-columns: 1fr; /* una columna */
     }
-
-    .products-grid {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+    &__right {
+      order: 2; /* mini-categorías debajo del carrusel */
+    }
+    .mini-categories--sidebar {
+      grid-template-columns: repeat(4, 1fr); /* 4 por fila en tablet */
+      grid-auto-rows: 88px;
+    }
+    &__left .hero-carousel {
+      height: 280px;
     }
   }
 }
 
-@media (max-width: 480px) {
-  .home-page {
-    .products-grid {
-      grid-template-columns: 1fr;
+@media (max-width: 640px) {
+  .home-hero {
+    .mini-categories--sidebar {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 84px;
+    }
+    &__left .hero-carousel {
+      height: 240px;
     }
   }
 }

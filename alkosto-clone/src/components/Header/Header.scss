@@ -3,23 +3,13 @@
   font-family: Arial, sans-serif;
 }
 
-/* 🔸 Banner superior */
-.header-top-banner {
-  background: #e95e27;
-  color: #fff;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 2px 0;
-  text-transform: uppercase;
-}
-
-/* 🔹 Bloque azul con imagen */
+/* 🔹 Bloque azul principal (fondo sólido) */
 .header-main {
-  background-size: cover;
-  background-position: center;
+  /* Si prefieres imagen de fondo, comenta la línea de color y usa background-image */
+  background: #0c65c8; /* azul sólido */
+  /* background: url("/images/fondo/fondo-azul.webp") no-repeat center/cover; */
   padding: 0;
-  height: 150px;
+  height: 150px;             /* altura del bloque azul */
   display: flex;
   align-items: center;
 }
@@ -27,7 +17,7 @@
 .header-main-container {
   display: grid;
   grid-template-rows: auto auto;
-  gap: 0px;
+  gap: 0;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -35,60 +25,47 @@
 /* ===== Fila superior ===== */
 .header-top-row {
   display: grid;
-  grid-template-columns: 380px 160px 1fr;
-  align-items: flex-start;
-  gap: 20px;
-  margin-top: 24px;
+  grid-template-columns: auto 1fr; /* logo + resto (ya NO hay hiperofertas) */
+  align-items: center;
+  gap: 60px;
 }
 
+/* Logo más grande */
 .header-logo img {
-  height: 120px;
+  height: 100px;  /* antes ~120px → ahora un poco más grande */
   width: auto;
   display: block;
-  margin-top: -30px;
 }
 
-/* Hiperofertas */
-.header-hiperofertas a {
-  background: #e6eef8;
-  color: #004797;
-  padding: 10px 15px;
-  border-radius: 10px;
-  font-size: 15px;
-  text-decoration: none;
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-/* Teléfonos + links */
+/* Teléfonos + links (tipografía más grande) */
 .header-info-links {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 16px;
+  gap: 20px;
   color: #fff;
-  font-size: 13px;
+  font-size: 15.5px; /* ↑ */
   white-space: nowrap;
   flex-wrap: wrap;
-}
 
-.header-info-links span {
-  font-weight: bold;
-}
+  .strong {
+    font-weight: 700;
+  }
 
-.header-info-links a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 13px;
-  position: relative;
-  padding: 0 8px;
-}
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15.5px; /* ↑ */
+    position: relative;
+    padding: 0 10px;
+  }
 
-.header-info-links a:not(:last-child)::after {
-  content: "|";
-  position: absolute;
-  right: -8px;
-  color: #fff;
+  a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -4px;
+    color: #fff;
+  }
 }
 
 /* ===== Fila inferior ===== */
@@ -96,40 +73,44 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  margin-top: -20px;
+  margin-top: -6px;
   padding-top: 0;
 }
 
+/* Agrupa buscador + acciones */
 .header-right-group {
   display: flex;
-  align-items: flex-start;
-  gap: 120px;
+  align-items: center;
+  gap: 280px;
 }
 
-/* Buscador */
-.search-bar {
+/* Buscador (tipografía más grande) */
+.header-search .search-bar {
   display: flex;
-  width: 100%;
-  max-width: 650px;
-  margin-top: -40px;
+  width: 170%;
+  max-width: 750px;       /* puedes aumentar si quieres más ancho */
 }
 
-.search-input {
+.header-search .search-input {
   flex: 1;
-  padding: 10px;
+  padding: 12px;         /* ↑ */
   border: 1px solid #ddd;
   border-radius: 6px 0 0 6px;
   background: #fff;
-  font-size: 14px;
+  font-size: 15.5px;     /* ↑ */
 }
 
-.search-button {
+.header-search .search-input::placeholder {
+  font-size: 17.5px;     /* ↑ “¿Qué buscas hoy?” */
+}
+
+.header-search .search-button {
   border: 1px solid #ff6a00;
   border-left: none;
   border-radius: 0 6px 6px 0;
-  background: #fff;
-  color: #ff6a00;
-  padding: 0 14px;
+  background: #ece8e4;
+  color: #fff;
+  padding: 0 16px;
   font-size: 18px;
   cursor: pointer;
   display: flex;
@@ -137,31 +118,44 @@
   justify-content: center;
 }
 
-/* Acciones (cuenta + carrito) */
+/* Acciones (Mi cuenta + Mi carrito) con tipografía más grande */
 .header-actions {
   display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  margin-top: -40px;
+  align-items: center;
+  gap: 34px;
 }
 
-.account-link,
-.cart-link {
+/* Para accesibilidad, el botón de Mi cuenta debe verse como enlace/ícono */
+.account-link {
+  background: transparent;
+  border: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 13px;
+  gap: 6px;
+  font-size: 15.5px;   /* ↑ */
   color: #fff;
   text-decoration: none;
-  gap: 5px;
+  cursor: pointer;
+
+  i {
+    font-size: 25px;  /* icono un poco mayor */
+  }
 }
 
-.account-link i,
-.cart-link i {
-  font-size: 20px;
+.cart-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  /* Si tu CartWidget trae el texto, puedes ajustar allí. Si no, agrega algo como:
+  span {
+    font-size: 15.5px;  // ↑
+  } */
 }
 
-/* 🔸 Categorías */
+/* 🔸 Categorías (sin cambios) */
 .header-categories {
   background: #fff;
   border-top: 1px solid #ddd;
@@ -173,27 +167,27 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  max-width: 1900px;
+  max-width: 1500px;
   margin: 0 auto;
   flex-wrap: wrap;
-}
 
-.header-categories a {
-  font-size: 14px;
-  text-decoration: none;
-  color: #004797;
-  position: relative;
-  padding: 0 8px;
-  white-space: nowrap;
-}
+  a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #004797;
+    position: relative;
+    padding: 0 8px;
+    white-space: nowrap;
+  }
 
-.header-categories a:not(:last-child)::after {
-  content: "|";
-  position: absolute;
-  right: -8px;
-  color: #999;
-}
+  a:not(:last-child)::after {
+    content: "|";
+    position: absolute;
+    right: -8px;
+    color: #999;
+  }
 
-.header-categories a:hover {
-  text-decoration: underline;
+  a:hover {
+    text-decoration: underline;
+  }
 }

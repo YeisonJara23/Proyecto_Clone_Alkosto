@@ -1,28 +1,32 @@
+// src/pages/HomePage.js
 import React from "react";
+import HeroCarousel from "../components/HeroCarousel/HeroCarousel";
+import MiniCategories from "../components/MiniCategories/MiniCategories";
 import "./HomePage.scss";
-import ProductCard from "../components/Product/ProductCard";
-import CategoriesSection from "../components/CategoriesSection/CategoriesSection";
-import { products } from "../data/products";
 
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <div className="home-page">
-      {/* 🔹 Sección de categorías */}
-      <CategoriesSection />
-
-      {/* 🔹 Sección de productos destacados */}
-      <section className="featured-products">
-        <div className="container">
-          <h2>Productos Destacados</h2>
-          <div className="products-grid">
-            {products.slice(0, 4).map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+    <main className="home">
+      {/* ===== HERO: carrusel (izquierda) + mini-categorías (derecha) ===== */}
+      <section className="home-hero" aria-label="Promociones y accesos rápidos">
+        <div className="home-hero__container">
+          {/* Carrusel a la izquierda */}
+          <div className="home-hero__left">
+            {/* altura controlada por CSS; bleed={false} para no desbordar */}
+            <HeroCarousel bleed={false} />
           </div>
+
+          {/* Mini-categorías a la derecha en 6 columnas */}
+          <aside className="home-hero__right" aria-label="Mini categorías">
+            <MiniCategories variant="sidebar" columns={6} limit={null} />
+          </aside>
         </div>
       </section>
-    </div>
-  );
-};
 
-export default HomePage;
+      {/* (Opcional) Otras secciones debajo
+      <section className="featured-products">…</section>
+      <section className="categories-section">…</section>
+      */}
+    </main>
+  );
+}

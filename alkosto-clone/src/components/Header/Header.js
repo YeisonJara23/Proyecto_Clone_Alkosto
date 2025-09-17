@@ -1,48 +1,34 @@
-import React, { useState } from 'react';
-import CartWidget from './CartWidget';
-import SearchBar from './SearchBar';
-import LoginModal from '../common/Modal/LoginModal'; 
-import './Header.scss';
+import React, { useState } from "react";
+import CartWidget from "./CartWidget";
+import SearchBar from "./SearchBar";
+import LoginModal from "../common/Modal/LoginModal";
+import "./Header.scss";
 
-// 🔹 Importar imágenes desde assets
-import logo from '../../assets/images/logo/alkosto-logo.webp';
-import fondoAzul from '../../assets/images/fondo/fondo-azul.webp';
+// Logo desde /src/assets/images/logo
+import alkostoLogo from "../../assets/images/logo/alkosto-logo-header.svg";
 
 const Header = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   return (
     <header className="header">
-      {/* 🔸 Banner superior */}
-      <div className="header-top-banner">
-        <span>¡Aprovecha las ofertas más esperadas del año!</span>
-      </div>
-
       {/* 🔹 Header principal */}
-      <div 
-        className="header-main" 
-        style={{ backgroundImage: `url(${fondoAzul})` }}
-      >
+      <div className="header-main">
         <div className="container header-main-container">
-          
+
           {/* ===== Fila superior ===== */}
           <div className="header-top-row">
             {/* Logo */}
             <div className="header-logo">
-              <a href="/">
-                <img src={logo} alt="Alkosto" />
+              <a href="/" aria-label="Ir al inicio">
+                <img src={alkostoLogo} alt="Alkosto" />
               </a>
             </div>
 
-            {/* Hiperofertas */}
-            <div className="header-hiperofertas">
-              <a href="/ofertas">Hiperofertas</a>
-            </div>
-
-            {/* Teléfonos + Links */}
+            {/* Teléfonos + Links (tipografía más grande) */}
             <div className="header-info-links">
-              <span>Venta: (601) 746 8001</span>
-              <span>Servicio: (601) 407 3033</span>
+              <span className="strong">Venta: (601) 746 8001</span>
+              <span className="strong">Servicio: (601) 407 3033</span>
               <a href="/sigue-tu-pedido">Sigue tu pedido</a>
               <a href="/tiendas">Nuestras tiendas</a>
               <a href="/catalogos">Catálogo</a>
@@ -53,34 +39,34 @@ const Header = () => {
           {/* ===== Fila inferior ===== */}
           <div className="header-bottom-row">
             <div className="header-right-group">
-              {/* Buscador */}
+              {/* Buscador (tipografía más grande) */}
               <div className="header-search">
                 <SearchBar />
               </div>
 
-              {/* Cuenta + Carrito */}
+              {/* Cuenta + Carrito (tipografía más grande) */}
               <div className="header-actions">
-                {/* 🔹 Botón Mi cuenta con modal */}
-                <div
+                <button
+                  type="button"
                   className="account-link"
                   onClick={() => setIsLoginOpen(true)}
-                  style={{ cursor: 'pointer' }}
+                  aria-label="Abrir Mi cuenta"
                 >
-                  <i className="alk-icon-user"></i>
+                  <i className="alk-icon-user" aria-hidden="true"></i>
                   <span>Mi cuenta</span>
-                </div>
+                </button>
 
-                {/* Carrito */}
                 <div className="cart-link">
                   <CartWidget />
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
-      {/* 🔸 Categorías */}
+      {/* 🔸 Categorías (sin cambios) */}
       <div className="header-categories">
         <div className="container header-categories-container">
           <a href="/category/celulares">Celulares</a>
